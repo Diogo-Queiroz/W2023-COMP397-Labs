@@ -12,7 +12,7 @@ public class FakeLoading : MonoBehaviour
 		StartCoroutine(MoveCube_Loading());
 	}
 
-	IEnumerator MoveCube_Loading()
+	private IEnumerator MoveCube_Loading()
 	{
 		yield return null;
 		float startX = cube.position.x;

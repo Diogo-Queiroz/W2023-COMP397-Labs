@@ -10,13 +10,13 @@ public class CameraController : MonoBehaviour
     private float XRotation = 0.0f;
     
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         float x = Input.GetAxis("Mouse X") * mouseSensitivity;
         float y = Input.GetAxis("Mouse Y") * mouseSensitivity;

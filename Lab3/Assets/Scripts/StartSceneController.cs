@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class StartSceneController : MonoBehaviour
 {
     [SerializeField] private FakeLoading _fakeLoading;
-    
+
     public void StartButton_Clicked()
     {
         _fakeLoading.StartFakeLoading();

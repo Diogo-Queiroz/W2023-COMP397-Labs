@@ -20,23 +20,23 @@ public class PlayerBehavior : MonoBehaviour
     public bool isGrounded;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundMask);
-        if (isGrounded && velocity.y < 0.0f)
-        {
-            velocity.y = -2.0f;
-        }
+        // if (isGrounded && velocity.y < 0.0f)
+        // {
+        //     velocity.y = -2.0f;
+        // }
 
         // Movement Section
         float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        float y = 0;// = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * y;
         controller.Move(move * maxSpeed * Time.deltaTime);
         
