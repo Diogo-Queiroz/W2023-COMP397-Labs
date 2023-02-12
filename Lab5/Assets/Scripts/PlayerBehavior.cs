@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
@@ -18,6 +19,13 @@ public class PlayerBehavior : MonoBehaviour
     public float groundRadius = 0.5f;
     public LayerMask groundMask;
     public bool isGrounded;
+    
+    private Vector3 startPosition;
+
+    private void Awake()
+    {
+        startPosition = transform.position;
+    }
 
     // Start is called before the first frame update
     private void Start()
@@ -54,5 +62,15 @@ public class PlayerBehavior : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("DeathArea"))
+        {
+            GetComponent<CharacterController>().enabled = false;
+            transform.position = startPosition;
+            GetComponent<CharacterController>().enabled = true;
+        }
     }
 }
