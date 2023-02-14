@@ -6,6 +6,12 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
+    [Header("Player Data")] 
+    public string playerName;
+    public int playerHealth;
+    public int playerLevel;
+
+    [Header("Character Controller")]
     public CharacterController controller;
     
     [Header("Movement")]
@@ -71,6 +77,21 @@ public class PlayerBehavior : MonoBehaviour
             GetComponent<CharacterController>().enabled = false;
             transform.position = startPosition;
             GetComponent<CharacterController>().enabled = true;
+        }
+    }
+
+    public void SaveButton_Pressed()
+    {
+        SaveSystem.SavePlayer(this.GetComponent<PlayerBehavior>());
+    }
+    public void LoadButton_Pressed()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        if (data != null)
+        {
+            playerName = data.name;
+            playerHealth = data.health;
+            playerLevel = data.level;
         }
     }
 }
