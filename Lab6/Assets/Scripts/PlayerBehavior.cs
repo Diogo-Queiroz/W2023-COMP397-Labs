@@ -49,7 +49,7 @@ public class PlayerBehavior : MonoBehaviour
         controller.Move(move * maxSpeed * Time.deltaTime);
         
         // Jump Section
-        if (Input.GetButton("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = MathF.Sqrt(jumpHeight * -2.0f * gravity);
             AudioController.Instance.PlaySFXAudio("hop4");
