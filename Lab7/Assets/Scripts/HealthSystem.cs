@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
-    [SerializeField] private int health = 3;
-    [SerializeField] private int maxHearts = 3;
+    public int health = 3;
+    public int maxHearts = 3;
 
     [SerializeField] private Image[] hearts;
     [SerializeField] private Sprite heartFull;

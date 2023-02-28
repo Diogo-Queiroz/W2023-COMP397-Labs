@@ -26,7 +26,11 @@ public class PlayerBehavior : MonoBehaviour
     public LayerMask groundMask;
     public bool isGrounded;
     
+    [Header("Health")]
+    [SerializeField] private HealthSystem _healthSystem;
+
     private Vector3 startPosition;
+    private bool _coroutineIsRunning = false;
 
     private void Awake()
     {
@@ -78,6 +82,48 @@ public class PlayerBehavior : MonoBehaviour
             transform.position = startPosition;
             GetComponent<CharacterController>().enabled = true;
         }
+        if (other.CompareTag("HealthPack"))
+        {
+            if (_healthSystem.health < _healthSystem.maxHearts)
+            {
+                _healthSystem.SelfHeal();
+                other.gameObject.SetActive(false);
+            }
+        }
+        if (other.CompareTag("HealthUpgrade"))
+        {
+            _healthSystem.IncreaseHeart();
+            other.gameObject.SetActive(false);
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("DamageArea") && !_coroutineIsRunning)
+        {
+            _coroutineIsRunning = true;
+            StartCoroutine(DoDamageOverTime());
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("DamageArea"))
+        {
+            StopCoroutine(DoDamageOverTime());
+            _coroutineIsRunning = false;
+        }
+    }
+
+    private IEnumerator DoDamageOverTime()
+    {
+        int counter = _healthSystem.health;
+        while (counter > 0 && _coroutineIsRunning)
+        {
+            _healthSystem.Damage();
+            yield return new WaitForSeconds(2f);
+            counter--;
+        }
+
+        yield return null;
     }
 
     public void SaveButton_Pressed()

@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private List<NavMeshSurface> _maze;
     [SerializeField] private List<GameObject> _robots;
     [SerializeField] private GameObject _pausePanel;
+    [SerializeField] private GameObject[] _environmentObjects;
     public static bool isPaused = false;
 
     private void Awake()
@@ -28,6 +29,11 @@ public class GameController : MonoBehaviour
         foreach (var robot in _robots)
         {
             robot.SetActive(true);
+        }
+
+        foreach (var environmentObject in _environmentObjects)
+        {
+            environmentObject.SetActive(true);
         }
     }
 
