@@ -8,6 +8,8 @@ TagManager:
   - DamageArea
   - HealthPack
   - HealthUpgrade
+  - RobotEnemy
+  - EnemySpawn
   layers:
   - Default
   - TransparentFX

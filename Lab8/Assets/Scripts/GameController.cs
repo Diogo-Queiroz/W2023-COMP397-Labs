@@ -6,13 +6,21 @@ using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
+public enum Dificulty
+{
+    Easy, Normal, Hard, VeryHard
+}
+
 public class GameController : MonoBehaviour
 {
     [SerializeField] private List<NavMeshSurface> _maze;
+    public MazeGenerator mazeGenerator;
+    public RobotSpawner robotSpawner;
     [SerializeField] private List<GameObject> _robots;
     [SerializeField] private GameObject _pausePanel;
     [SerializeField] private GameObject[] _environmentObjects;
     public static bool isPaused = false;
+    public Dificulty difficulty = Dificulty.Easy;
 
     private void Awake()
     {
@@ -22,19 +30,26 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        SetupMaze();
         foreach (var tiles in _maze)
         {
             tiles.BuildNavMesh();
         }
-        foreach (var robot in _robots)
-        {
-            robot.SetActive(true);
-        }
+        SpawnRobots();
+        //foreach (var environmentObject in _environmentObjects)
+        //{
+        //    environmentObject.SetActive(true);
+        //}
+    }
 
-        foreach (var environmentObject in _environmentObjects)
-        {
-            environmentObject.SetActive(true);
-        }
+    private void SetupMaze()
+    {
+        mazeGenerator.GenerateMaze();
+    }
+
+    private void SpawnRobots()
+    {
+        robotSpawner.SpawnRobots(mazeGenerator.activeTiles, difficulty);
     }
 
     private void Update()
