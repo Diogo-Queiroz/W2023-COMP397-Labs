@@ -2034,10 +2034,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300b8c6297548454e8cf5ecf60fe56ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MobileJoysticks:
+  MobileCommands:
   - {fileID: 1588072432}
   - {fileID: 239521921}
-  MobileButtons:
   - {fileID: 696461396}
   - {fileID: 731159051}
 --- !u!1 &645520929
@@ -2116,11 +2115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f099298d05588a74299cfcee3afd5283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 6
-  length: 6
+  width: 8
+  length: 8
   tilePrefabs:
   - {fileID: 4754776805731544609, guid: 1438f2dd02e90fb41a160807d9f9030f, type: 3}
-  - {fileID: 5746659513949778501, guid: ec7b74a3c6bd13a45ae1df4863aee444, type: 3}
+  - {fileID: 5746659513949778501, guid: 2a283a80624d58a4fb277c1004631090, type: 3}
   activeTiles: []
 --- !u!1 &650029771
 GameObject:
@@ -5928,7 +5927,7 @@ MonoBehaviour:
   - {fileID: 781744582}
   - {fileID: 1397115213}
   - {fileID: 943359180}
-  difficulty: 0
+  difficulty: 3
 --- !u!114 &1867723112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6823,6 +6822,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123471236}
   m_CullTransparentMesh: 1
+--- !u!1 &2125448520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2125448522}
+  - component: {fileID: 2125448521}
+  m_Layer: 0
+  m_Name: TileFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &2125448521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125448520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b73137677c0bca4392846c2b8b98ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilePrefab: {fileID: 7305711805166201153, guid: 79e2655f8af7fa3419df993a1ae8130c, type: 3}
+  width: 6
+  length: 6
+  activeTiles: []
+  factoryOfTiles: []
+--- !u!4 &2125448522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125448520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.04898, y: 9.569342, z: -15.296047}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3727374313705433174
 PrefabInstance:
   m_ObjectHideFlags: 0
