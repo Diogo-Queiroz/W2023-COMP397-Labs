@@ -30,6 +30,14 @@ public class RobotSpawner : MonoBehaviour
                 var robot = Instantiate(robotPrefab,
                     robotSpawn.position, Quaternion.identity);
                 robot.transform.parent = this.transform;
+                for (int j = 0; j < robotSpawn.childCount; j++)
+                {
+                    if (robotSpawn.GetChild(j).CompareTag("RobotPath"))
+                    {
+                        robot.GetComponent<RobotBehaviour>().tileRobotPath.Add(
+                        robotSpawn.GetChild(j).gameObject);
+                    }
+                }
             }
             
         }

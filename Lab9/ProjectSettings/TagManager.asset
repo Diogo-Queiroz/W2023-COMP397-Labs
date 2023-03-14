@@ -10,6 +10,7 @@ TagManager:
   - HealthUpgrade
   - RobotEnemy
   - EnemySpawn
+  - RobotPath
   layers:
   - Default
   - TransparentFX

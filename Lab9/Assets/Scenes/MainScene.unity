@@ -2116,7 +2116,7 @@ MonoBehaviour:
   length: 6
   tilePrefabs:
   - {fileID: 4754776805731544609, guid: 1438f2dd02e90fb41a160807d9f9030f, type: 3}
-  - {fileID: 5746659513949778501, guid: ec7b74a3c6bd13a45ae1df4863aee444, type: 3}
+  - {fileID: 5746659513949778501, guid: d3701ab05f736a040a7def96be1246ec, type: 3}
   activeTiles: []
 --- !u!1 &650029771
 GameObject:
@@ -5976,7 +5976,7 @@ MonoBehaviour:
   - {fileID: 781744582}
   - {fileID: 1397115213}
   - {fileID: 943359180}
-  difficulty: 0
+  difficulty: 3
 --- !u!114 &1867723112
 MonoBehaviour:
   m_ObjectHideFlags: 0
