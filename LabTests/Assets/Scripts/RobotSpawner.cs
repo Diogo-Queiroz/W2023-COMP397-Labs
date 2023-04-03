@@ -22,13 +22,13 @@ public class RobotSpawner : MonoBehaviour
         
         for (int i = 0; i < activeMazeTiles.Count; i++)
         {
-            var robotSpawn = activeMazeTiles[i].transform.GetChild(
+            Transform robotSpawn = activeMazeTiles[i].transform.GetChild(
                 activeMazeTiles[i].transform.childCount - 1);
-            var randomChance = Random.Range(0, 101);
+            int randomChance = Random.Range(0, 101);
             
             if (robotSpawn.gameObject.tag.Equals("EnemySpawn") && robotSpawnChance >= randomChance)
             {
-                var robot = Instantiate(robotPrefab,
+                GameObject robot = Instantiate(robotPrefab,
                     robotSpawn.position, Quaternion.identity);
                 robot.transform.parent = this.transform;
                 for (int j = 0; j < robotSpawn.childCount; j++)

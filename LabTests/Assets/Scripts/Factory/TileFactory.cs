@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 
@@ -66,9 +65,9 @@ namespace Factory
 
             tileNames = new Dictionary<string, Type>();
 
-            foreach (var type in tileTypes)
+            foreach (Type type in tileTypes)
             {
-                var tempTile = Activator.CreateInstance(type) as Tile;
+                Tile tempTile = Activator.CreateInstance(type) as Tile;
                 tileNames.Add(tempTile.Name, type);
             }
         }
@@ -80,7 +79,7 @@ namespace Factory
             if (tileNames.ContainsKey(tileType))
             {
                 Type type = tileNames[tileType];
-                var tile = Activator.CreateInstance(type) as Tile;
+                Tile tile = Activator.CreateInstance(type) as Tile;
                 return tile;
             }
             return null;

@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         SetupMaze();
-        foreach (var tiles in _maze)
+        foreach (NavMeshSurface tiles in _maze)
         {
             tiles.BuildNavMesh();
         }

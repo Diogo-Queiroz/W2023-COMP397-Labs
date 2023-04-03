@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthSystem : MonoBehaviour
+public class HealthSystem : MonoBehaviour, IObserver
 {
     public int health = 3;
     public int maxHearts = 3;
+    public PlayerBehavior player;
 
     [SerializeField] private Image[] hearts;
     [SerializeField] private Sprite heartFull;
     [SerializeField] private Sprite heartEmpty;
 
-    void Start()
+    private void OnEnable() => player.AddObserver(this);
+    private void OnDisable() => player.RemoveObserver(this);
+
+    private void Start()
     {
         UpdateUI();
     }
@@ -64,5 +68,10 @@ public class HealthSystem : MonoBehaviour
     {
         maxHearts++;
         UpdateUI();
+    }
+
+    public void OnNotify()
+    {
+        Debug.Log("OBSERVER PATTERN working");
     }
 }

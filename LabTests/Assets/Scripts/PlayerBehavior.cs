@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerBehavior : MonoBehaviour
+public class PlayerBehavior : Subject
 {
     [Header("Player Data")] 
     public string playerName;
@@ -46,6 +46,7 @@ public class PlayerBehavior : MonoBehaviour
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        NotifyObservers();
     }
 
     // Update is called once per frame

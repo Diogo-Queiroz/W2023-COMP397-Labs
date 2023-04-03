@@ -17,7 +17,7 @@ public class AudioSettings : ScriptableObject
 
     public AudioClip GetAudioClip(string clipName)
     {
-        foreach (var audioClip in audios)
+        foreach (AudioClip audioClip in audios)
         {
             if (audioClip.name == clipName)
             {

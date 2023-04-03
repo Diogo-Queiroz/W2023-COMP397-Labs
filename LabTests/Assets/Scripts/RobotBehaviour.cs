@@ -13,7 +13,7 @@ public class RobotBehaviour : MonoBehaviour
     public List<GameObject> tileRobotPath;
     
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         currentPath = 0;
         agent = GetComponent<NavMeshAgent>();
@@ -23,10 +23,9 @@ public class RobotBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        var close = Vector3.Distance(transform.position, tileRobotPath[currentPath].transform.position);
-        Debug.Log($"Close = {close}");
+        float close = Vector3.Distance(transform.position, tileRobotPath[currentPath].transform.position);
         if (close <= 1.5f)
         {
             NextPoint();

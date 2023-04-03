@@ -3,11 +3,11 @@ using UnityEngine;
 public class CanvasPlatformController : MonoBehaviour
 {
     [SerializeField] private GameObject[] MobileCommands;
-    
-    void Start()
+
+    private void Start()
     {
 #if !UNITY_ANDROID
-        foreach (var command in MobileCommands)
+        foreach (GameObject command in MobileCommands)
         {
             command.SetActive(false);
         }

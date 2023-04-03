@@ -321,7 +321,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1867723112}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: HealthSystem, Assembly-CSharp
         m_MethodName: SelfHeal
         m_Mode: 1
@@ -2978,6 +2978,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753265614}
   m_CullTransparentMesh: 1
+--- !u!1 &754253131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 754253132}
+  - component: {fileID: 754253133}
+  m_Layer: 0
+  m_Name: HealthSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &754253132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754253131}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1867723110}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &754253133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754253131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f0725b786bf564686c70081e66c7b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  maxHearts: 3
+  player: {fileID: 1270707631}
+  hearts:
+  - {fileID: 969010643}
+  - {fileID: 1646184694}
+  - {fileID: 368012662}
+  - {fileID: 287925034}
+  - {fileID: 741270877}
+  - {fileID: 84824334}
+  - {fileID: 468973113}
+  - {fileID: 456446433}
+  heartFull: {fileID: -1694976209, guid: 9278586e385918240b2e7bf196d02c3a, type: 3}
+  heartEmpty: {fileID: -375227231, guid: 9278586e385918240b2e7bf196d02c3a, type: 3}
 --- !u!1 &781061764
 GameObject:
   m_ObjectHideFlags: 0
@@ -4262,7 +4320,7 @@ PrefabInstance:
     - target: {fileID: 1132091700864620362, guid: 670a60a51ed964642981eb4692b600be, type: 3}
       propertyPath: _healthSystem
       value: 
-      objectReference: {fileID: 1867723112}
+      objectReference: {fileID: 0}
     - target: {fileID: 5180725496411311969, guid: 670a60a51ed964642981eb4692b600be, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -5574,7 +5632,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1867723112}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: HealthSystem, Assembly-CSharp
         m_MethodName: Damage
         m_Mode: 1
@@ -5879,7 +5937,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1867723110}
   - component: {fileID: 1867723111}
-  - component: {fileID: 1867723112}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -5895,10 +5952,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867723109}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.0782003, y: 23.083673, z: -8.884626}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 754253132}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5928,31 +5986,6 @@ MonoBehaviour:
   - {fileID: 1397115213}
   - {fileID: 943359180}
   difficulty: 3
---- !u!114 &1867723112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1867723109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16f0725b786bf564686c70081e66c7b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  maxHearts: 3
-  hearts:
-  - {fileID: 969010643}
-  - {fileID: 1646184694}
-  - {fileID: 368012662}
-  - {fileID: 287925034}
-  - {fileID: 741270877}
-  - {fileID: 84824334}
-  - {fileID: 468973113}
-  - {fileID: 456446433}
-  heartFull: {fileID: -1694976209, guid: 9278586e385918240b2e7bf196d02c3a, type: 3}
-  heartEmpty: {fileID: -375227231, guid: 9278586e385918240b2e7bf196d02c3a, type: 3}
 --- !u!1 &1896853249
 GameObject:
   m_ObjectHideFlags: 0
@@ -6696,7 +6729,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1867723112}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: HealthSystem, Assembly-CSharp
         m_MethodName: IncreaseHeart
         m_Mode: 1
