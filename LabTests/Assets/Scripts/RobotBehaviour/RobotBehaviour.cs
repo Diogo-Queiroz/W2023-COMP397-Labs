@@ -11,7 +11,7 @@ public class RobotBehaviour : MonoBehaviour
     [SerializeField] private int currentPath; 
     
     public List<GameObject> tileRobotPath;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,7 @@ public class RobotBehaviour : MonoBehaviour
     void Update()
     {
         var close = Vector3.Distance(transform.position, tileRobotPath[currentPath].transform.position);
-        Debug.Log($"Close = {close}");
+        //Debug.Log($"Close = {close}");
         if (close <= 1.5f)
         {
             NextPoint();
@@ -42,4 +42,5 @@ public class RobotBehaviour : MonoBehaviour
         }
         agent.SetDestination(tileRobotPath[currentPath].transform.position);
     }
+    
 }
